@@ -14,3 +14,16 @@ def show_menu():
 
 def show_contacts(contacts: list):
     [print(contact) for contact in contacts]
+
+def show_contact(contact: list):
+    print(contact)
+
+def find_contact():
+    name = input('Введите имя контакта для поиска: ')
+    return name
+
+def show_delete_result(result: bool):
+    if result:
+        print('Контакт удален')
+    else:
+        print('Выберите контакт для удаления, воспользовавшись поиском')
