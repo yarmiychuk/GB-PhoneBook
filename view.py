@@ -13,17 +13,40 @@ def show_menu():
     return command
 
 def show_contacts(contacts: list):
-    [print(contact) for contact in contacts]
+    if len(contacts) == 0:
+        print('Список контактов пуст')
+    else:
+        [print(contact) for contact in contacts]
+    print()
 
 def show_contact(contact: list):
-    print(contact)
+    print(contact + '\n')
 
 def find_contact():
     name = input('Введите имя контакта для поиска: ')
     return name
 
+def show_read_result(contacts: list):
+    if len(contacts) == 0:
+        print('Файл прочитан, записей контактов не содержит\n')
+    else:
+        print('Файл прочитан, содержит записи:')
+        show_contacts(contacts)
+
+def show_write_result(result: bool):
+    if result:
+        print('Контакты успешно сохранены в файл\n')
+    else:
+        print('Ошибка сохрания\n')
+
+def show_add_result(contact: list):
+    if contact == None:
+        print('Ошибка добавления записи\n')
+    else:
+        print(f'Новая запись добавлена:\n{contact}\n')
+
 def show_delete_result(result: bool):
     if result:
-        print('Контакт удален')
+        print('Контакт удален\n')
     else:
-        print('Выберите контакт для удаления, воспользовавшись поиском')
+        print('Выберите контакт для удаления, воспользовавшись поиском\n')

@@ -7,7 +7,7 @@ current_id: str = ''
 
 def read_file():
     global contacts, last_id
-    with open(path) as f:
+    with open(path, 'r', encoding='utf_8') as f:
         contacts = [i.strip().split(';') for i in f.readlines()]
     last_id = '0' if len(contacts) == 0 else contacts[len(contacts) - 1][0]
     return contacts
@@ -18,17 +18,23 @@ def get_contacts():
 
 def add_contact():
     global contacts, last_id
-    contacts.append([\
-        str(int(last_id) + 1),\
+    contact = [str(int(last_id) + 1),\
         input('Введите Имя: '),\
         input('Введите Телефон: '),\
-        input('Введите Комментарий: ')])
+        input('Введите Комментарий: ')]
+    contacts.append(contact)
+    last_id += 1
+    return contact
 
 def save_file():
     global contacts
-    with open(path, 'w', encoding='utf_8') as f:
-        for contact in contacts:
-            f.write(';'.join(contact) + "\n")
+    try:
+        with open(path, 'w', encoding='utf_8') as f:
+            for contact in contacts:
+                f.write(';'.join(contact) + "\n")
+    except:
+        return False            
+    return True
 
 def delete_contact():
     global contacts, current_id
