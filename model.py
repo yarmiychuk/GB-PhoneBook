@@ -20,11 +20,6 @@ def add_contact():
         input('Введите Имя: '),\
         input('Введите Телефон: '),\
         input('Введите Комментарий: ')])
-    # id = input('Введите id: ')
-    # name = input('Введите Имя: ')
-    # phone = input('Введите Телефон: ')
-    # comment = input('Введите Комментарий: ')
-    # contacts.append(';'.join([id, name, phone, comment]))
 
 def save_file():
     global contacts
