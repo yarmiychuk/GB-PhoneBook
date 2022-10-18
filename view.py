@@ -20,7 +20,10 @@ def show_contacts(contacts: list):
     print()
 
 def show_contact(contact: list):
-    print(contact + '\n')
+    if (contact == None):
+        print('Нет контакта для отображения\n')
+    else:
+        print(f'{contact}\n')
 
 def find_contact():
     name = input('Введите имя контакта для поиска: ')
@@ -40,10 +43,13 @@ def show_write_result(result: bool):
         print('Ошибка сохрания\n')
 
 def show_add_result(contact: list):
+    print(f'Новая запись добавлена:\n{contact}\n')
+
+def show_edit_result(contact: list):
     if contact == None:
-        print('Ошибка добавления записи\n')
+        print('Для редактирования контакта воспользуйтесь поиском\n')
     else:
-        print(f'Новая запись добавлена:\n{contact}\n')
+        print(f'Запись отредактирована:\n{contact}\n')
 
 def show_delete_result(result: bool):
     if result:

@@ -13,7 +13,8 @@ def start():
             case '4':
                 view.show_add_result(model.add_contact())
             case '5':
-                pass # Изменить контакт
+                view.show_contact(model.get_current())
+                view.show_edit_result(model.edit_contact())
             case '6':
                 view.show_delete_result(model.delete_contact())
             case '7':

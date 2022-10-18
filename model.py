@@ -26,6 +26,21 @@ def add_contact():
     last_id += 1
     return contact
 
+def edit_contact():
+    global contacts, current_id
+    if current_id == '':
+        return None
+    index = get_index(current_id)
+    if index == None:
+        return None
+    contact = [current_id,\
+        input('Введите Имя: '),\
+        input('Введите Телефон: '),\
+        input('Введите Комментарий: ')]
+    contacts[index] = contact
+    current_id = ''
+    return contact
+
 def save_file():
     global contacts
     try:
@@ -47,10 +62,26 @@ def delete_contact():
             return True
     return False
 
+def get_index(id: str):
+    global contacts
+    for i in range(len(contacts)):
+        if contacts[i][0] == id:
+            return i
+    return None
+
+def get_current():
+    global contacts, current_id
+    if current_id == '':
+        return None
+    for i in range(len(contacts)):
+        if contacts[i][0] == current_id:
+            return contacts[i]
+    return None
+    
+
 def find_by_name(name: str):
     global contacts, current_id
     current_id = ''
-    print(f'Имя для поиска: {name}')
     for i in range(len(contacts)):
         if contacts[i][1] == name:
             current_id = contacts[i][0]
