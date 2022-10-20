@@ -11,7 +11,7 @@ def start():
     root['bg'] = '#ffffff'
     root.title('Phone Book')
     root.wm_attributes('-alpha', 1.0)
-    root.geometry('400x620')
+    root.geometry('400x820')
 
     root.resizable(width=False, height=False)
 
