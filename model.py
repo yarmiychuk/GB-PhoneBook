@@ -18,12 +18,13 @@ def get_contacts():
 
 def add_contact():
     global contacts, last_id
-    contact = [str(int(last_id) + 1),\
+    new_id = str(int(last_id) + 1)
+    contact = [new_id,\
         input('Введите Имя: '),\
         input('Введите Телефон: '),\
         input('Введите Комментарий: ')]
     contacts.append(contact)
-    last_id += 1
+    last_id = new_id
     return contact
 
 def edit_contact():
